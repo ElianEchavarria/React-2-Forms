@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * A book should have the following fields:
@@ -14,7 +14,19 @@ import React from "react";
  */
 
 const AddBook = () => {
-  return <div>AddBook</div>;
+  const [title, setTitle] = useState("Team 4")
+   const handleSubmit = (event) => {
+     event.preventDefault();
+     console.log( "title", title);
+   }
+  return ( 
+  <form onClick={handleSubmit}>
+      <input name= "title" placeholder="Enter Book Name" type ="text" ></input>
+      <button className="create-button">Create Book</button>
+    </form>
+      
+
+  )
 };
 
 export default AddBook;
