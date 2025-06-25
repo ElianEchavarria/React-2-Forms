@@ -14,7 +14,7 @@ import React, { useState } from "react";
  * - isFavorite (boolean, default false)
  */
 
-const AddBook = ({ onAdd }) => {
+const AddBook = ({ onAdd, books }) => {
   const [form, setForm] = useState({
     title: "",
     author: "",
@@ -35,6 +35,16 @@ const AddBook = ({ onAdd }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // This part under here should help stop duplicate books ima keep testing it
+    const isDuplicate = books.some(
+      (book) =>
+        book.title.trim().toLowerCase() === form.title.trim().toLowerCase()
+    );
+    if (isDuplicate) {
+      alert("This book title already exists. Please enter a different title.");
+      return;
+    }
     if (!form.title || !form.author || form.rating < 1 || form.rating > 5) {
       alert("Title, author, and valid rating are required.");
       return;
@@ -47,11 +57,11 @@ const AddBook = ({ onAdd }) => {
     <form onSubmit={handleSubmit} className="add-book-form">
       <input name="title" placeholder="Title" value={form.title} onChange={handleChange} required />
       <input name="author" placeholder="Author" value={form.author} onChange={handleChange} required />
-      <input name="image" placeholder="Image URL" value={form.image} onChange={handleChange} required />
-      <input type="date" name="publishedDate" value={form.publishedDate} onChange={handleChange} required />
-      <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} required />
-      <input name="rating" type="number" min="1" max="5" placeholder="Rating (1-5)" value={form.rating} onChange={handleChange} required />
-      <select name="category" value={form.category} onChange={handleChange} required>
+      <input name="image" placeholder="Image URL" value={form.image} onChange={handleChange} />
+      <input type="date" name="publishedDate" value={form.publishedDate} onChange={handleChange} />
+      <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} />
+      <input name="rating" type="number" min="1" max="5" placeholder="Rating (1-5)" value={form.rating} onChange={handleChange} />
+      <select name="category" value={form.category} onChange={handleChange}>
         <option value="">Select category</option>
         <option value="fiction">Fiction</option>
         <option value="non-fiction">Non-fiction</option>
@@ -68,25 +78,25 @@ const AddBook = ({ onAdd }) => {
         <option value="gardening">Gardening</option>
       </select>
       <div className="checkbox-group">
-        <label >
-          <input
-            name="isRead"
-            type="checkbox"
-            checked={form.isRead}
-            onChange={handleChange}
-          />
-          Read
-        </label>
-        <label>
-          <input
-            name="isFavorite"
-            type="checkbox"
-            checked={form.isFavorite}
-            onChange={handleChange}
-          />
-          Favorite
-        </label>
-      </div>
+              <label>
+                <input
+                  name="isRead"
+                  type="checkbox"
+                  checked={form.isRead}
+                  onChange={handleChange}
+                />
+                Read
+              </label>
+              <label>
+                <input
+                  name="isFavorite"
+                  type="checkbox"
+                  checked={form.isFavorite}
+                  onChange={handleChange}
+                />
+                Favorite
+              </label>
+            </div>
       <button type="submit">Add Book</button>
     </form>
   );
