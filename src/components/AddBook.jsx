@@ -25,11 +25,9 @@ const AddBook = ({addOn}) => {
      }
   return ( 
   <form  onSubmit={handleSubmit}>
-      <input className="form-input" onChange={handleTitleChange} name= "title" placeholder="Enter Book Name" type ="text" ></input>
+      <input required className="form-input" onChange={handleTitleChange} name= "title" placeholder="Enter Book Name" type ="text" ></input>
       <button type="submit" className="create-button">Create Book</button>
     </form>
-      
-
   )
 };
 
