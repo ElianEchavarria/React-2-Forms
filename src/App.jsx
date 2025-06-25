@@ -62,18 +62,35 @@ Start small. Get `title` working first, then expand. Use dummy data to test layo
 
 
 
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 import AddBook from "./components/AddBook";
 import BookList from "./components/BookList";
 
 const App = () => {
+  const bookArray = [{
+    id: 1, title: "Dairy of Wimpy Kid"
+  }, {
+    id: 2, title: "Hunger Games"
+  }];
+  const [books, setBooks] = useState(bookArray)
+  const addingBooks =(bookTitle) => {
+    const newBook = {id: books.length +1, title: bookTitle}
+    setBooks([...books, newBook]);
+  }
   return (
     <div className="app">
       <h1 className="title">React Forms! 📝</h1>
-      <AddBook />
+      <AddBook addOn = {addingBooks}/>
       <BookList />
+      <div>
+      <ul>
+        {books.map((book) => (
+          <li key={book.id}>{book.title}</li>
+        ))}
+      </ul>
+      </div>
     </div>
   );
 };

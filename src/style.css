@@ -25,7 +25,7 @@ body {
   min-height: 100vh;
 }
 
-.app * {
+.app {
   color: #ffffff;
 }
 
@@ -43,4 +43,8 @@ body {
 
 .create-button{
   color:#160f29;
+}
+
+input{
+  color:black;
 }

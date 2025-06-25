@@ -13,16 +13,20 @@ import React, { useState } from "react";
  * - isFavorite (boolean, default false)
  */
 
-const AddBook = () => {
-  const [title, setTitle] = useState("Team 4")
+const AddBook = ({addOn}) => {
+  const [title, setTitle] = useState("")
    const handleSubmit = (event) => {
      event.preventDefault();
      console.log( "title", title);
+     addOn(title);
    }
+   const handleTitleChange =(event) => {
+      setTitle(event.target.value);
+     }
   return ( 
-  <form onClick={handleSubmit}>
-      <input name= "title" placeholder="Enter Book Name" type ="text" ></input>
-      <button className="create-button">Create Book</button>
+  <form  onSubmit={handleSubmit}>
+      <input className="form-input" onChange={handleTitleChange} name= "title" placeholder="Enter Book Name" type ="text" ></input>
+      <button type="submit" className="create-button">Create Book</button>
     </form>
       
 
