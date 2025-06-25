@@ -14,7 +14,7 @@ import React, { useState } from "react";
  * - isFavorite (boolean, default false)
  */
 
-const AddBook = ({ onAdd }) => {
+const AddBook = ({ onAdd, books }) => {
   const [form, setForm] = useState({
     title: "",
     author: "",
@@ -35,6 +35,16 @@ const AddBook = ({ onAdd }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // This part under here should help stop duplicate books ima keep testing it
+    const isDuplicate = books.some(
+      (book) =>
+        book.title.trim().toLowerCase() === form.title.trim().toLowerCase()
+    );
+    if (isDuplicate) {
+      alert("This book title already exists. Please enter a different title.");
+      return;
+    }
     if (!form.title || !form.author || form.rating < 1 || form.rating > 5) {
       alert("Title, author, and valid rating are required.");
       return;

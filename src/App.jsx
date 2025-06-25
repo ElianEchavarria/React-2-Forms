@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="app">
       <h1 className="title">React Forms! 📝</h1>
-      <AddBook onAdd={handleAddBook} />
+      <AddBook onAdd={handleAddBook} books={books} />
       Book List
       <BookList books={books} />
     </div>

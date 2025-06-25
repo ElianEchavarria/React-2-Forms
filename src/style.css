@@ -117,14 +117,28 @@ body {
   object-fit: cover;
 }
 
+
 @media (max-width: 600px) {
   .add-book-form input,
   .add-book-form textarea,
   .add-book-form select {
     width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
   }
+
+  .add-book-form {
+    padding: 1rem;
+    background-color: #D1CCC1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
 
   .book-card {
     width: 90%;
   }
-}
