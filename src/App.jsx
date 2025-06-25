@@ -16,7 +16,6 @@ const App = () => {
     <div className="app">
       <h1 className="title">React Forms! 📝</h1>
       <AddBook onAdd={handleAddBook} />
-      Book List
       <BookList books={books} />
     </div>
   );
