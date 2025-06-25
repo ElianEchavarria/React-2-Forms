@@ -3,13 +3,20 @@ import { createRoot } from "react-dom/client";
 import "./style.css";
 import AddBook from "./components/AddBook";
 import BookList from "./components/BookList";
+import { useState } from "react";
 
 const App = () => {
+  const [books, setBooks] = useState([]);
+
+  const handleAddBook = (book) => {
+    setBooks([...books, book]);
+  };
+
   return (
     <div className="app">
       <h1 className="title">React Forms! 📝</h1>
-      <AddBook />
-      <BookList />
+      <AddBook onAdd={handleAddBook} />
+      <BookList books={books} />
     </div>
   );
 };
