@@ -2,15 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Georgia", sans-serif;
+  font-family: "Georgia", serif;
 }
 
 body {
-  background-color: #160f29;
+  background-image: url('https://www.miltonandking.com/wp-content/uploads/2018/10/Wallpaper-Kemra-Bookshelf-1-1100x1318.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .title {
-  color: #ffffff;
+  color: #f8f5f0;
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
@@ -23,15 +27,18 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* softer dark overlay */
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .app * {
-  color: #ffffff;
+  color: #fefefe;
 }
 
 .add-book-form {
   margin-bottom: 3rem;
-  border-bottom: 1px solid #3c2d50;
+  border-bottom: 1px solid #d1c1b3;
   padding-bottom: 2rem;
 }
 
@@ -49,9 +56,9 @@ body {
   padding: 10px;
   width: 300px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #2a1f3c;
-  color: #ffffff;
+  border: 1px solid #cfcfcf;
+  background-color: #f6f1e7; /* soft cream */
+  color: #2e2e2e;
 }
 
 .add-book-form input[type="checkbox"] {
@@ -63,7 +70,7 @@ body {
 .add-book-form button {
   margin-top: 10px;
   padding: 10px 16px;
-  background-color: #5e4b8b;
+  background-color: #926aa6; /* plum */
   color: white;
   border: none;
   border-radius: 5px;
@@ -72,7 +79,7 @@ body {
 }
 
 .add-book-form button:hover {
-  background-color: #7d65c1;
+  background-color: #bfa26a; /* soft amber */
 }
 
 .checkbox-group {
@@ -90,16 +97,17 @@ body {
 }
 
 .book-card {
-  background-color: #2a1f3c;
-  border: 1px solid #eee;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #d1c1b3;
   padding: 1rem;
   border-radius: 8px;
   width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .book-card h3,
 .book-card p {
-  color: #ffffff;
+  color: #2e2e2e;
   margin-bottom: 0.5rem;
 }
 
@@ -117,7 +125,6 @@ body {
   object-fit: cover;
 }
 
-
 @media (max-width: 600px) {
   .add-book-form input,
   .add-book-form textarea,
@@ -132,13 +139,19 @@ body {
 
   .add-book-form {
     padding: 1rem;
-    background-color: #D1CCC1;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(54, 129, 198, 0.1);
   }
-}
-
 
   .book-card {
     width: 90%;
   }
+
+  .book-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}

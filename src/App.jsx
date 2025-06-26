@@ -14,9 +14,10 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1 className="title">React Forms! 📝</h1>
+      <h1 className="title">Reading Nook</h1>
       <AddBook onAdd={handleAddBook} books={books} />
-      Book List
+      <h2 className="section-title">Book List</h2>
+
       <BookList books={books} />
     </div>
   );
